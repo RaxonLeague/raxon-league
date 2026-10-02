@@ -48,3 +48,42 @@ function renderDemoBracket() {
         </div>
     `;
 }
+// Manejo de Inscripción
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const nickname = form.querySelector('input[type="text"]')?.value;
+    const fullName = form.querySelectorAll('input[type="text"]')[1]?.value;
+    const birthDate = form.querySelector('input[type="date"]')?.value;
+    const discordTag = form.querySelectorAll('input[type="text"]')[2]?.value;
+
+    if (!supabase) {
+      alert('Error de conexión con Supabase');
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from('players')
+      .insert([
+        { 
+          nickname: nickname, 
+          full_name: fullName, 
+          birth_date: birthDate, 
+          discord_tag: discordTag,
+          status: 'pending' 
+        }
+      ]);
+
+    if (error) {
+      alert('Error al registrar: ' + error.message);
+    } else {
+      alert('¡Inscripción recibida con éxito!');
+      form.reset();
+      window.location.reload();
+    }
+  });
+});
