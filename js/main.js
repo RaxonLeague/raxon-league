@@ -1,32 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
-    loadSettings();
-    loadDynamicMedia();
-    renderDemoBracket();
-});
+  // Inicialización de funciones generales del sitio
+  if (typeof loadSettings === 'function') loadSettings();
+  if (typeof loadDynamicMedia === 'function') loadDynamicMedia();
+  if (typeof renderDemoBracket === 'function') renderDemoBracket();
 
-async function loadSettings() {
-    if (!supabase) return;
-    const { data } = await supabase.from('site_settings').select('*').single();
-    if (data) {
-        if (data.slogan) {
-            const el = document.getElementById('hero-slogan');
-            if (el) el.innerText = data.slogan;
-        }
+  // Listener para el formulario de inscripción
+  const form = document.querySelector('form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Capturar inputs del formulario de inscripción
+    const inputs = form.querySelectorAll('input');
+    const nickname = inputs[0]?.value;
+    const fullName = inputs[1]?.value;
+    const birthDate = inputs[2]?.value;
+    const discordTag = inputs[3]?.value;
+
+    if (!supabase) {
+      alert('Error: No se pudo conectar con Supabase.');
+      return;
     }
-}
 
-async function loadDynamicMedia() {
-    const container = document.getElementById('dynamic-media-container');
-    if (!container || !supabase) return;
+    // Insertar en la tabla 'players'
+    const { data, error } = await supabase
+      .from('players')
+      .insert([
+        { 
+          nickname: nickname, 
+          full_name: fullName, 
+          birth_date: birthDate, 
+          discord_tag: discordTag,
+          status: 'pending' 
+        }
+      ]);
 
-    const { data: mediaItems } = await supabase
-        .from('media')
-        .select(`id, title, file_url, media_locations!inner(location_tag)`)
-        .eq('is_archived', false);
-
-    if (!mediaItems || mediaItems.length === 0) {
-        container.innerHTML = '<p class="pending">No hay piezas publicadas actualmente.</p>';
-        return;
+    if (error) {
+      console.error('Error de Supabase:', error);
+      alert('Error al enviar la inscripción: ' + error.message);
+    } else {
+      alert('¡Inscripción enviada exitosamente!');
+      form.reset();
+      window.location.reload();
+    }
+  });
+});
     }
 
     container.innerHTML = mediaItems.map(item => `
