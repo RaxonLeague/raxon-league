@@ -1,0 +1,41 @@
+body.admin-body {
+    background-color: #050608;
+    color: #f0f4f8;
+    font-family: system-ui, sans-serif;
+    margin: 0;
+}
+
+.admin-sidebar {
+    width: 240px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: #0d1117;
+    border-right: 1px solid #1f293d;
+    padding: 1.5rem;
+}
+
+.admin-sidebar a {
+    display: block;
+    color: #8a99ad;
+    text-decoration: none;
+    padding: 0.75rem 0;
+    font-weight: bold;
+}
+
+.admin-sidebar a:hover {
+    color: #00e5ff;
+}
+
+.admin-content {
+    margin-left: 280px;
+    padding: 2rem;
+}
+
+.card-dashboard {
+    background: #121620;
+    border: 1px solid #1f293d;
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
