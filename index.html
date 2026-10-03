@@ -3,115 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAXON League — Una nueva temporada. Un nuevo legado.</title>
+    <title>RAXON League — Inicio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
+    <!-- Navegación -->
     <header class="header">
         <a href="index.html" class="logo-text">RAXON</a>
         <nav class="nav">
-            <a href="index.html">RAXON</a>
-            <a href="#temporada">Temporada Actual</a>
-            <a href="rankings.html">Rankings</a>
-            <a href="records.html">Récords</a>
-            <a href="historia.html">Historia</a>
-            <a href="jugadores.html">Jugadores</a>
-            <a href="organizaciones.html">Organizaciones</a>
+            <a href="index.html">Inicio</a>
             <a href="reglamento.html">Reglamento</a>
-            <a href="media.html">Media</a>
-            <a href="inscripcion.html" class="btn-primary">Inscripción</a>
+            <!-- Reemplaza el enlace href con la URL de tu Google Form -->
+            <a href="https://forms.google.com" target="_blank" class="btn-primary">Inscripción</a>
         </nav>
-        <div class="social-header">
-            <a href="https://kick.com" target="_blank">KICK</a>
-            <a href="https://tiktok.com" target="_blank">TikTok</a>
-            <a href="https://youtube.com" target="_blank">YouTube</a>
-        </div>
     </header>
 
-    <main>
-        <!-- 1. RAXON HERO -->
-        <section class="hero-section">
-            <h1 id="hero-title">RAXON LEAGUE</h1>
-            <p id="hero-slogan" class="slogan">Construye tu legado.</p>
-            <p id="hero-phrase" class="phrase">Una nueva temporada. Un nuevo legado.</p>
-        </section>
+    <!-- Sección Hero -->
+    <section class="hero">
+        <h1>RAXON LEAGUE — TEMPORADA 01</h1>
+        <p class="slogan">Construye tu legado.</p>
+        
+        <!-- Botón destacado hacia Google Forms -->
+        <a href="https://forms.google.com" target="_blank" class="btn-primary" style="font-size: 1.1rem; padding: 0.8rem 2rem;">
+            Ir al Formulario de Inscripción
+        </a>
+    </section>
 
-        <!-- 2. TEMPORADA ACTUAL -->
-        <section id="temporada" class="section">
-            <h2>TEMPORADA 01 — LEAGUE OF LEGENDS</h2>
-            <div class="details-card">
-                <p><strong>Modalidad:</strong> 1v1 (LAN / Colombia)</p>
-                <p><strong>Elegibilidad:</strong> +18 Años | 64 Jugadores Máximo</p>
-                <p><strong>Inscripción:</strong> $15.000 COP</p>
-                <p><strong>Bolsa de Premios:</strong> 1° $350.000 | 2° $100.000 | 3° $15.000</p>
-                <p><strong>Fechas:</strong> 7, 8, 14 y 15 de Noviembre</p>
-                <p><strong>Condiciones de Victoria:</strong> Primera Sangre | 100 Súbditos | Primera Torre</p>
-            </div>
-        </section>
-
-        <!-- 3. PRESENTACIÓN -->
-        <section class="section alt-bg">
-            <h2>SOBRE RAXON</h2>
-            <p class="manifesto">
-                RAXON no es solo un torneo. Es una liga en construcción diseñada para perdurar.
-                Comienza en Colombia con League of Legends, pero evoluciona constantemente con nuevos juegos,
-                nuevas modalidades y nuevas generaciones de competidores.
+    <!-- Información de la Liga (Quiénes Somos & Objetivo) -->
+    <section class="info-grid">
+        <div class="card">
+            <h3>¿Quiénes Somos?</h3>
+            <p>
+                RAXON League es una plataforma competitiva creada por y para la comunidad. Buscamos brindar un espacio organizado, justo y profesional donde jugadores emergentes y experimentados puedan demostrar su talento en torneos de alto nivel.
             </p>
-        </section>
-
-        <!-- 4 & 5. COMPETICIÓN Y RESULTADOS (DEMO) -->
-        <section class="section">
-            <h2>FASE DE GRUPOS & BRACKET (DEMO)</h2>
-            <span class="badge-demo">MODO DEMOSTRACIÓN</span>
-            <div id="bracket-view" class="bracket-container"></div>
-        </section>
-
-        <!-- 6. PRÓXIMOS ENFRENTAMIENTOS -->
-        <section class="section alt-bg">
-            <h2>PRÓXIMOS ENFRENTAMIENTOS</h2>
-            <div id="upcoming-matches">
-                <p class="pending">Jornadas oficiales en programación.</p>
-            </div>
-        </section>
-
-        <!-- 7. MEDIA DINÁMICA -->
-        <section id="media-block" class="section">
-            <h2>MEDIA DESTACADA</h2>
-            <div id="dynamic-media-container" class="media-grid"></div>
-        </section>
-
-        <!-- 8 & 9. RECORSE E HISTORIA -->
-        <section class="section alt-bg">
-            <h2>SALÓN DE LA FAMA & HISTORIAL</h2>
-            <p><strong>Divisiones Futuras:</strong> <span class="pending">PENDIENTE DE DEFINIR</span></p>
-            <p><strong>Estructura de Premiación Futura:</strong> <span class="pending">PENDIENTE DE DEFINIR</span></p>
-        </section>
-
-        <!-- 10. EL FUTURO -->
-        <section class="section future-section">
-            <h2>EL FUTURO DE RAXON</h2>
-            <p>Expansión a VALORANT, ligas de 3v3 / 5v5, sistemas de admisiones por ranking y divisiones competitivas.</p>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <h3>RAXON League</h3>
-            <p>Construye tu legado.</p>
-            <p class="subtle">Una nueva temporada. Un nuevo legado.</p>
-            <div class="footer-links">
-                <a href="https://kick.com" target="_blank">KICK</a>
-                <a href="https://tiktok.com" target="_blank">TikTok</a>
-                <a href="https://youtube.com" target="_blank">YouTube</a>
-            </div>
-            <p class="copyright">&copy; RAXON League. Todos los derechos reservados.</p>
         </div>
+
+        <div class="card">
+            <h3>Nuestro Objetivo</h3>
+            <p>
+                Fomentar el crecimiento de la escena competitiva local, ofreciendo eventos estructurados, seguimiento de estadísticas y una experiencia de torneo clara y transparente para todos los participantes desde la Temporada 01.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 RAXON League. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="js/supabase-client.js"></script>
-    <script src="js/demo-data.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>
