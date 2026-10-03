@@ -16,11 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (!window.supabaseClient) {
-      alert('Error: Cliente de Supabase no inicializado.');
+      alert('Error: No se pudo conectar con el cliente de Supabase.');
       return;
     }
 
-    // Usamos la instancia explícita window.supabaseClient
     const { data, error } = await window.supabaseClient
       .from('players')
       .insert([
