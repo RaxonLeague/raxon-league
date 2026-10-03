@@ -217,3 +217,35 @@ footer {
     padding: 1rem 0.5rem;
   }
 }
+/* Centrado total y responsivo para la imagen del Reglamento */
+.rules-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.rules-image {
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 30, 56, 0.35);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 30, 56, 0.2);
+}
+
+/* Ajustes específicos para pantallas pequeñas y celulares */
+@media (max-width: 768px) {
+  .rules-image-wrapper {
+    padding: 1rem 0.5rem;
+  }
+  
+  .rules-image {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+}
