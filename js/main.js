@@ -1,24 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form');
+  const form = document.getElementById('registration-form');
   if (!form) return;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const inputs = form.querySelectorAll('input');
-    const nickname = inputs[0]?.value;
-    const fullName = inputs[1]?.value;
-    const birthDate = inputs[2]?.value;
-    const discordTag = inputs[3]?.value;
+    const nickname = document.getElementById('nickname')?.value;
+    const fullName = document.getElementById('real_name')?.value;
+    const birthDate = document.getElementById('birth_date')?.value;
+    const discordTag = document.getElementById('discord')?.value;
+    const statusDiv = document.getElementById('form-status');
 
-    const db = window.supabaseClient;
+    if (statusDiv) {
+      statusDiv.innerHTML = '<p class="pending">Enviando inscripción a la base de datos...</p>';
+    }
 
-    if (!db) {
-      alert('Error: No se pudo conectar con Supabase. Revisa los scripts cargados.');
+    if (!window.supabaseClient) {
+      alert('Error: Cliente de Supabase no inicializado.');
       return;
     }
 
-    const { data, error } = await db
+    // Usamos la instancia explícita window.supabaseClient
+    const { data, error } = await window.supabaseClient
       .from('players')
       .insert([
         { 
@@ -32,11 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (error) {
       console.error('Error al insertar:', error);
+      if (statusDiv) {
+        statusDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+      }
       alert('Error de registro: ' + error.message);
     } else {
+      if (statusDiv) {
+        statusDiv.innerHTML = '<p style="color: var(--primary);">Inscripción recibida. Pendiente de verificación administrativa.</p>';
+      }
       alert('¡Inscripción enviada exitosamente!');
       form.reset();
-      window.location.reload();
     }
   });
 });
