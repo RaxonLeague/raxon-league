@@ -3,61 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscripción — RAXON League</title>
+    <meta http-equiv="refresh" content="0; url=https://forms.gle/CHGLu1nWPmJG3c2r5">
+    <title>Redirigiendo a Inscripción — RAXON League</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+    <!-- Header / Navegación -->
     <header class="header">
-        <a href="index.html" class="logo-text">RAXON</a>
+        <a href="index.html" class="logo-container">
+            <img src="img/logo.png" alt="RAXON League" class="brand-logo">
+        </a>
         <nav class="nav">
             <a href="index.html">Inicio</a>
             <a href="reglamento.html">Reglamento</a>
-            <a href="inscripcion.html" class="btn-primary">Inscripción</a>
+            <a href="https://forms.gle/CHGLu1nWPmJG3c2r5" target="_blank" class="btn-primary">Inscripción</a>
         </nav>
     </header>
 
-    <main class="section">
-        <h2>INSCRIPCIÓN — TEMPORADA 01</h2>
-        <p class="slogan">Construye tu legado.</p>
-
-        <form id="registration-form" class="form-container alt-bg" style="padding: 2rem;">
-            <div class="form-group" style="margin-bottom: 1rem;">
-                <label for="nickname">Nickname Oficial (Público)*</label>
-                <input type="text" id="nickname" required placeholder="Ej: Gamer123" style="width:100%; padding: 0.5rem;">
-            </div>
-
-            <div class="form-group" style="margin-bottom: 1rem;">
-                <label for="real_name">Nombre Completo (Privado)*</label>
-                <input type="text" id="real_name" required placeholder="Nombre real" style="width:100%; padding: 0.5rem;">
-            </div>
-
-            <div class="form-group" style="margin-bottom: 1rem;">
-                <label for="birth_date">Fecha de Nacimiento (+18)*</label>
-                <input type="date" id="birth_date" required style="width:100%; padding: 0.5rem;">
-            </div>
-
-            <div class="form-group" style="margin-bottom: 1rem;">
-                <label for="discord">Discord Tag (Privado)*</label>
-                <input type="text" id="discord" required placeholder="usuario#0000" style="width:100%; padding: 0.5rem;">
-            </div>
-
-            <div class="form-group" style="margin-bottom: 1.5rem;">
-                <label for="receipt">Comprobante de Pago ($15.000 COP - Privado)*</label>
-                <input type="file" id="receipt" accept="image/*,.pdf" required style="width:100%;">
-            </div>
-
-            <button type="submit" class="btn-primary" style="width:100%; cursor:pointer;">Enviar Inscripción</button>
-        </form>
-        <div id="form-status" style="margin-top: 1rem;"></div>
+    <main class="hero">
+        <h1>Redirigiendo al Formulario de Inscripción...</h1>
+        <p class="slogan" style="margin-top: 1rem;">Si no eres redirigido automáticamente en unos segundos, haz clic en el botón de abajo:</p>
+        <a href="https://forms.gle/CHGLu1nWPmJG3c2r5" target="_blank" class="btn-primary btn-hero">
+            Abrir Formulario de Google
+        </a>
     </main>
 
-    <!-- 1. Cargar la librería de Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <footer>
+        <p>&copy; 2026 RAXON League. Todos los derechos reservados.</p>
+    </footer>
 
-    <!-- 2. Inicializar cliente -->
-    <script src="js/supabase-client.js"></script>
-
-    <!-- 3. Lógica del envío e inserción a la BD -->
-    <script src="js/main.js"></script>
 </body>
 </html>
