@@ -1,11 +1,11 @@
 :root {
-  --bg-dark: #0B0C10;        /* Negro / Sombras profundas */
-  --card-bg: #1C232E;        /* Gris Azulado Oscuro */
-  --primary: #FF1E38;        /* Rojo Neón / Brillos */
-  --primary-hover: #D6122B;  /* Rojo Neón Tono Presionado */
-  --text-main: #FFFFFF;      /* Blanco Puro */
-  --text-muted: #8A9BA8;     /* Gris Claro / Humo */
-  --border-color: #1C232E;   /* Bordes */
+  --bg-dark: #0B0C10;
+  --card-bg: #1C232E;
+  --primary: #FF1E38;
+  --primary-hover: #D6122B;
+  --text-main: #FFFFFF;
+  --text-muted: #8A9BA8;
+  --border-color: #1C232E;
 }
 
 * {
@@ -21,138 +21,119 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden; /* Evita desplazamiento horizontal desbordado */
 }
 
-/* Header de 3 columnas para centrado perfecto del logo */
+/* Header & Navegación */
 .header {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
-  background-color: #0B0C10;
-  border-bottom: 2px solid var(--primary);
-  box-shadow: 0 0 20px rgba(255, 30, 56, 0.25);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 30, 56, 0.2);
+  background-color: rgba(11, 12, 16, 0.95);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo-container {
-  grid-column: 2; /* Coloca el logo exactamente al centro */
   display: flex;
-  justify-content: center;
   align-items: center;
   text-decoration: none;
 }
 
-/* Aumento de tamaño del Logo */
 .brand-logo {
-  height: 90px; /* Tamaño aumentado significativamente */
-  max-height: 100px;
+  height: 45px;
   width: auto;
-  display: block;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(255, 30, 56, 0.4));
-  transition: transform 0.3s ease;
-}
-
-.brand-logo:hover {
-  transform: scale(1.05);
 }
 
 .nav {
-  grid-column: 3; /* Navegación alineada a la derecha */
   display: flex;
-  gap: 2rem;
   align-items: center;
-  justify-content: flex-end;
+  gap: 1.5rem;
 }
 
 .nav a {
   color: var(--text-main);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.05rem;
+  font-weight: 500;
   transition: color 0.3s;
 }
 
-.nav a:hover, .nav a.active {
+.nav a:hover,
+.nav a.active {
   color: var(--primary);
 }
 
-/* Botones Estilo Neón */
+/* Botón Primario */
 .btn-primary {
   background-color: var(--primary);
-  color: #FFFFFF;
-  padding: 0.7rem 1.6rem;
+  color: #fff !important;
+  padding: 0.6rem 1.2rem;
   border-radius: 6px;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
   display: inline-block;
-  border: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(255, 30, 56, 0.5);
+  text-align: center;
 }
 
 .btn-primary:hover {
   background-color: var(--primary-hover);
-  box-shadow: 0 0 22px rgba(255, 30, 56, 0.8);
   transform: translateY(-2px);
 }
 
-.btn-hero {
-  font-size: 1.2rem;
-  padding: 1rem 2.5rem;
-  margin-top: 1.5rem;
-}
-
-/* Hero Section */
+/* Hero / Banner Principal */
 .hero {
   text-align: center;
-  padding: 4rem 1.5rem 2rem;
+  padding: 4rem 1.5rem 3rem;
   max-width: 900px;
   margin: 0 auto;
 }
 
 .hero h1 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
   margin-bottom: 0.5rem;
-  letter-spacing: 2px;
 }
 
 .slogan {
-  font-size: 1.3rem;
   color: var(--primary);
-  font-weight: 700;
-  text-shadow: 0 0 10px rgba(255, 30, 56, 0.4);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
 }
 
-/* Cards Informativas */
+.btn-hero {
+  font-size: 1.1rem;
+  padding: 0.8rem 1.8rem;
+}
+
+/* Tarjetas Informativas (Inicio) */
 .info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   max-width: 1000px;
-  margin: 2rem auto;
+  width: 100%;
+  margin: 0 auto 4rem;
   padding: 0 1.5rem;
-  flex: 1;
 }
 
 .card {
   background-color: var(--card-bg);
-  border: 1px solid rgba(255, 30, 56, 0.25);
-  border-radius: 12px;
-  padding: 2.2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  border-color: var(--primary);
-  box-shadow: 0 0 15px rgba(255, 30, 56, 0.3);
+  border: 1px solid rgba(255, 30, 56, 0.2);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .card h3 {
   color: var(--primary);
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .card p {
@@ -160,64 +141,7 @@ body {
   line-height: 1.6;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  border-top: 1px solid var(--card-bg);
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  margin-top: auto;
-  background-color: #0B0C10;
-}
-
-/* Adaptabilidad para Celulares */
-@media (max-width: 768px) {
-  .header {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    padding: 1.2rem 1rem;
-  }
-
-  .brand-logo {
-    height: 70px; /* Tamaño optimizado para pantallas de celular */
-  }
-
-  .nav {
-    justify-content: center;
-    width: 100%;
-    gap: 1.2rem;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-}
-/* Contenedor e Imagen del Reglamento */
-.rules-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 1rem;
-  flex: 1;
-}
-
-.rules-image {
-  max-width: 900px;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 30, 56, 0.3);
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 30, 56, 0.2);
-}
-
-@media (max-width: 768px) {
-  .rules-image-container {
-    padding: 1rem 0.5rem;
-  }
-}
-/* Centrado total y responsivo para la imagen del Reglamento */
+/* Imagen del Reglamento */
 .rules-image-wrapper {
   display: flex;
   justify-content: center;
@@ -238,12 +162,63 @@ footer {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 30, 56, 0.2);
 }
 
-/* Ajustes específicos para pantallas pequeñas y celulares */
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 30, 56, 0.1);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* ==========================================
+   RESPONSIVO PARA CELULARES (Pantallas < 768px)
+   ========================================== */
 @media (max-width: 768px) {
+  /* Header apilado y centrado */
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* Títulos adaptados */
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .slogan {
+    font-size: 1.1rem;
+  }
+
+  .btn-hero {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Forzar tarjetas a 1 sola columna hacia abajo */
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0 1rem;
+  }
+
+  /* Imagen del reglamento al 100% en celular */
   .rules-image-wrapper {
     padding: 1rem 0.5rem;
   }
-  
+
   .rules-image {
     max-width: 100%;
     border-radius: 8px;
