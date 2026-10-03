@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscripción — RAXON League</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <header class="header">
@@ -52,25 +51,13 @@
         <div id="form-status" style="margin-top: 1rem;"></div>
     </main>
 
+    <!-- 1. Cargar la librería de Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2. Inicializar cliente -->
     <script src="js/supabase-client.js"></script>
-    <script>
-        document.getElementById('registration-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const status = document.getElementById('form-status');
-            status.innerHTML = '<p class="pending">Enviando inscripción a la base de datos...</p>';
-            
-            setTimeout(() => {
-                status.innerHTML = '<p style="color: var(--primary);">Inscripción recibida. Pendiente de verificación administrativa.</p>';
-            }, 1000);
-        });
-    </script>
-    <!-- Librería CDN de Supabase -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <!-- Cliente de Supabase -->
-  <script src="js/supabase-client.js"></script>
-
-  <!-- Script principal para procesar el envío -->
-  <script src="js/main.js"></script>
+    <!-- 3. Lógica del envío e inserción a la BD -->
+    <script src="js/main.js"></script>
 </body>
 </html>
