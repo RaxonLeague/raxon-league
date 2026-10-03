@@ -11,12 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const birthDate = inputs[2]?.value;
     const discordTag = inputs[3]?.value;
 
-    if (typeof supabase === 'undefined') {
-      alert('Error: No se encontró la conexión con Supabase.');
+    const db = window.supabaseClient;
+
+    if (!db) {
+      alert('Error: No se pudo conectar con Supabase. Revisa los scripts cargados.');
       return;
     }
 
-    const { data, error } = await supabase
+    const { data, error } = await db
       .from('players')
       .insert([
         { 
